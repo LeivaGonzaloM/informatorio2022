@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block contenido %}
+    <section>
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Datos de la noticia</h4>
+        </div>
+
+        <div class="card-body">
+
+
+        {% include 'noticia/noticiaform.html' %}
+        
+        </div>
+    </div>
+    </section>
+{% endblock %} 

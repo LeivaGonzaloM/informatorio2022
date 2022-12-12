@@ -1,0 +1,55 @@
+
+
+
+
+{% comment %} <form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {% for campo in formulario %}
+  
+      <div class="mb-3">
+        <h5><label for="" class="form-label">{{campo.label}}</label></h5>  
+        {% if campo.label == 'Publicado' %}
+        
+        <input id="startDate" class="form-control" type="date" name="{{ campo.name }}"/>
+
+        {% else %}   
+        {% if campo.label == 'Cuerpo de noticia'%}
+        <textarea class="form-control" name="{{ campo.name }}" cols="250" rows="5" class="vLargeTextField" required="" id="id_texto">{{ campo.value | default:''}}
+        </textarea>   <br/>
+        {% else %}
+        
+        {% if campo.name == 'categoria'%}
+        <div class="mb-3"> 
+              {{campo}}
+        </div>                
+        {% else %}
+        {% if campo.label == 'Activo' %}
+             <select class="form-select form-select-xs" name="{{ campo.name }}" id="">
+                <option value="True">Si</option>
+                <option value="False">No</option>
+            </select><br/> 
+        {% else %}
+        {% if campo.field.widget.input_type == 'file' and campo.value %}
+            <img src="{{MEDIA_URL}}/media/{{campo.value}}" width="100" alt="" srcset="">
+        {% endif %}
+        <input
+        type="{{campo.field.widget.input_type}}"
+        class="form-control"
+        name="{{ campo.name }}"
+        id=""
+        aria-describedby="helpId"
+        placeholder="{{campo.label}}" 
+        value="{{ campo.value | default:''}}"
+        />
+      </div>
+
+      <div class="col=12 help-text"> {{campo.errors}} </div>
+    {% endif %} {% endif %} {% endif %} {% endif %} 
+    {% endfor%}
+      <br/>
+      <input name="" id="" class="btn btn-success" type="submit" value="Enviar">
+      <a name="" id="" class="btn btn-primary" href="{% url 'listarnoticias' %}" role="button">Cancelar</a>
+    {% csrf_token %}    
+  </form> {% endcomment %}
+
+  

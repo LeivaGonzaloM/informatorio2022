@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<section class="d-flex flex-column justify-content-center align-items-center pt-5  text-center w-50 m-auto" id="intro">
+    <h1 class="p-3 fs-2 border-top border-3"><span class="text-success">Listado de usuarios<span/></h1>
+</section>
+<br/>
+
+<div class="container" style="max-width: 2000px">
+    <div class="row justify-content-center align-items-center g-1">
+            <div class="table-responsive">
+                <table class="table table-info">
+                    <thead>
+                        <tr>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col">Genero</th>
+                            <th scope="col">Estado Civil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in listaUsuarios %}
+                        <tr class="">
+                            <td>{{user.nombreUsuario}}</td>
+                            <td>{{user.Email}}</td>
+                            <td>{{user.Edad}}</td>
+                            <td>{{user.Genero}}</td>
+                            <td>{{user.EstadoCivil}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>
+
+
+{% endblock %}
